@@ -1,0 +1,39 @@
+logging:
+  level:
+    com.example: warn
+    jdbc:
+      sqltiming: fatal
+      resultsettable: fatal
+      sqlonly: fatal
+      audit: fatal
+      resultset: fatal
+      connection: fatal
+
+log4jdbc:
+  dump.sql:
+    addsemicolon: true
+    maxlinelength: 0
+  trim.sql:
+    extrablanklines: false
+
+spring:
+  flyway:
+    clean-on-validation-error: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: postgres
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+          fetch_size: 20
+          batch_versioned_data: true
+    hibernate:
+      ddl-auto: validate
+  main:
+    banner-mode: off

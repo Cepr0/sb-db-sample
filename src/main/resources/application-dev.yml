@@ -1,0 +1,13 @@
+logging:
+  level:
+    com.example: debug
+    org:
+      springframework:
+        orm.jpa: debug
+    jdbc:
+      sqltiming: info
+      resultsettable: info
+
+spring:
+  flyway:
+    clean-on-validation-error: true
