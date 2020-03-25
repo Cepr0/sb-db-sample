@@ -4,11 +4,11 @@ POST http://localhost:8080/people
 Content-Type: application/json
 
 {
-  "name": "John Smith",
-  "email": "jsmith@example.com",
-  "city": "London",
-  "street": "Smith Str",
-  "number": "1-bis"
+  "name": "John Smith {{$randomInt}}",
+  "email": "jsmith{{$randomInt}}@example.com",
+  "city": "London {{$randomInt}}",
+  "street": "Smith Str {{$randomInt}}",
+  "number": "{{$randomInt}}-bis"
 }
 
 > {%
@@ -33,7 +33,7 @@ PATCH http://localhost:8080/people/{{personId}}
 Content-Type: application/json
 
 {
-  "number": "12-bis"
+  "number": "{{$randomInt}}-bis"
 }
 
 ###
@@ -48,7 +48,7 @@ Content-Type: application/json
 {
   "brand": "Tesla",
   "model": "Model S",
-  "plateNum": "QW-123-ER",
+  "plateNum": "QW-{{$randomInt}}-ER",
   "personId": "{{personId}}"
 }
 
@@ -75,7 +75,7 @@ PATCH http://localhost:8080/cars/{{carId}}
 Content-Type: application/json
 
 {
-  "plateNum": "AS-456-DF"
+  "plateNum": "AS-{{$randomInt}}-DF"
 }
 
 ###
