@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 
@@ -25,8 +24,7 @@ public class Car extends IntIdEntity {
     @Column(nullable = false, length = 16)
     private String model;
 
-    @NaturalId
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 16, unique = true)
     private String plateNum;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

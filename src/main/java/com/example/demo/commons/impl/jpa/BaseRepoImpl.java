@@ -41,4 +41,9 @@ public interface BaseRepoImpl<T extends BaseEntity<ID>, ID extends Serializable>
     default void delById(ID id) {
         deleteById(id);
     }
+
+    @Override
+    default T getReference(ID id) {
+        return getOne(id);
+    }
 }

@@ -9,13 +9,18 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import static java.util.Optional.ofNullable;
+
 @Mapper(config = BaseMapper.class)
 public abstract class PersonMapper implements BaseMapper<Person, Integer, PersonRequest, PersonResponse> {
     @AfterMapping
-    void setAddress(@MappingTarget Person person, PersonRequest request) {
+    void setAddress(PersonRequest request, @MappingTarget Person person) {
         if (person != null && request != null) {
-            Address address = new Address(request.getCity(), request.getStreet(), request.getNumber());
-            person.setAddress(address);
+            Address address = person.getAddress();
+            String city = ofNullable(request.getCity()).orElse(address.getCity());
+            String street = ofNullable(request.getStreet()).orElse(address.getStreet());
+            String number = ofNullable(request.getNumber()).orElse(address.getNumber());
+            person.setAddress(new Address(city, street, number));
         }
     }
 }

@@ -3,10 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.commons.crud.DefaultAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
 import com.example.demo.commons.dto.OnUpdate;
-import com.example.demo.dto.PersonRequest;
-import com.example.demo.dto.PersonResponse;
-import com.example.demo.model.Person;
-import com.example.demo.service.PersonService;
+import com.example.demo.dto.CarRequest;
+import com.example.demo.dto.CarResponse;
+import com.example.demo.model.Car;
+import com.example.demo.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,34 +16,34 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
 @RestController
-@RequestMapping("people")
-public class PersonController extends DefaultAbstractBaseController<Person, Integer, PersonRequest, PersonResponse> {
+@RequestMapping("cars")
+public class CarController extends DefaultAbstractBaseController<Car, Integer, CarRequest, CarResponse> {
 
-    protected PersonController(PersonService service, Executor taskExecutor) {
+    protected CarController(CarService service, Executor taskExecutor) {
         super(service, taskExecutor);
     }
 
     @Override
     @PostMapping
-    public CompletableFuture<PersonResponse> create(@RequestBody @Validated(OnCreate.class) PersonRequest request) {
+    public CompletableFuture<CarResponse> create(@RequestBody @Validated(OnCreate.class) CarRequest request) {
         return super.create(request);
     }
 
     @Override
     @GetMapping("/{id}")
-    public CompletableFuture<ResponseEntity<PersonResponse>> getById(@PathVariable Integer id) {
+    public CompletableFuture<ResponseEntity<CarResponse>> getById(@PathVariable Integer id) {
         return super.getById(id);
     }
 
     @Override
     @GetMapping
-    public CompletableFuture<List<PersonResponse>> getAll() {
+    public CompletableFuture<List<CarResponse>> getAll() {
         return super.getAll();
     }
 
     @Override
     @PatchMapping("/{id}")
-    public CompletableFuture<ResponseEntity<PersonResponse>> update(@PathVariable Integer id, @RequestBody @Validated(OnUpdate.class) PersonRequest request) {
+    public CompletableFuture<ResponseEntity<CarResponse>> update(@PathVariable Integer id, @RequestBody @Validated(OnUpdate.class) CarRequest request) {
         return super.update(id, request);
     }
 

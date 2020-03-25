@@ -30,5 +30,5 @@ public class Person extends IntIdEntity {
 
     @Type(type = "jsonb")
     @Column(nullable = false, columnDefinition = "jsonb")
-    private Address address;
+    private Address address = new Address();
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BaseService<T extends BaseEntity<ID>, ID extends Serializable, Q extends BaseRequest, S extends BaseResponse<ID>> {
+
     S create(Q request);
 
     <E extends T> E create(E entity);

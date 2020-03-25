@@ -17,7 +17,7 @@ public abstract class IntIdEntity extends BaseEntity<Integer> {
 	private Integer id;
 
 	@Version
-	private Integer version;
+	private Short version;
 
 	public IntIdEntity(Integer id) {
 		this.id = id;

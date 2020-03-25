@@ -18,4 +18,6 @@ public interface BaseRepo<T extends BaseEntity<ID>, ID extends Serializable> {
     <S> Optional<T> updateById(ID id, S source, BiFunction<S, T, T> mapper);
 
     void delById(ID id);
+
+    T getReference(ID id);
 }

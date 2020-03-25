@@ -6,6 +6,8 @@ public abstract class BaseEntity<ID extends Serializable> implements Serializabl
 
 	public abstract ID getId();
 
+	public abstract Short getVersion();
+
 	@Override
 	public String toString() {
 		return getClass().getSimpleName() + "{id=" + getId() + "}";

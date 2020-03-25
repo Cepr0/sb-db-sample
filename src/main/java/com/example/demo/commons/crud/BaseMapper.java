@@ -4,6 +4,7 @@ import com.example.demo.commons.dto.BaseRequest;
 import com.example.demo.commons.dto.BaseResponse;
 import com.example.demo.commons.model.BaseEntity;
 import org.mapstruct.MapperConfig;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 
@@ -18,15 +19,19 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
         nullValueCheckStrategy = ALWAYS,
         nullValuePropertyMappingStrategy = IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        unmappedSourcePolicy = ReportingPolicy.IGNORE,
         componentModel = "spring"
 )
 public interface BaseMapper<T extends BaseEntity<ID>, ID extends Serializable, Q extends BaseRequest, S extends BaseResponse<ID>> {
+
     T toEntity(Q request);
 
     S toResponse(T entity);
 
     T update(Q request, @MappingTarget T target);
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "version", ignore = true)
     T update(T source, @MappingTarget T target);
 
     default ID toId(T entity) {
