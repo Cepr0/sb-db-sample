@@ -18,8 +18,8 @@ public abstract class DefaultAbstractBaseService<
         S extends BaseResponse<ID>
     > implements BaseService<T, ID, Q, S> {
 
-    private final BaseRepo<T, ID> repo;
-    private final BaseMapper<T, ID, Q, S> mapper;
+    protected final BaseRepo<T, ID> repo;
+    protected final BaseMapper<T, ID, Q, S> mapper;
 
     protected DefaultAbstractBaseService(BaseRepo<T, ID> repo, BaseMapper<T, ID, Q, S> mapper) {
         this.repo = repo;

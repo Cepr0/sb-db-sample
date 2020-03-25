@@ -15,8 +15,8 @@ import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 public abstract class DefaultAbstractBaseController<T extends BaseEntity<ID>, ID extends Serializable, Q extends BaseRequest, S extends BaseResponse<ID>> {
 
-    private final BaseService<T, ID, Q, S> service;
-    private final Executor taskExecutor;
+    protected final BaseService<T, ID, Q, S> service;
+    protected final Executor taskExecutor;
 
     protected DefaultAbstractBaseController(BaseService<T, ID, Q, S> service, Executor taskExecutor) {
         this.service = service;

@@ -83,3 +83,8 @@ Content-Type: application/json
 DELETE http://localhost:8080/cars/{{carId}}
 
 ###
+
+GET http://localhost:8080/people/{{personId}}/cars
+Accept: application/json
+
+###

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.commons.crud.DefaultAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
 import com.example.demo.commons.dto.OnUpdate;
+import com.example.demo.dto.CarResponse;
 import com.example.demo.dto.PersonRequest;
 import com.example.demo.dto.PersonResponse;
 import com.example.demo.model.Person;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
+
+import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 @RestController
 @RequestMapping("people")
@@ -51,5 +54,10 @@ public class PersonController extends DefaultAbstractBaseController<Person, Inte
     @DeleteMapping("/{id}")
     public CompletableFuture<Void> delete(@PathVariable Integer id) {
          return super.delete(id);
+    }
+
+    @GetMapping("/{personId}/cars")
+    public CompletableFuture<List<CarResponse>> getCarsByPerson(@PathVariable Integer personId) {
+        return supplyAsync(() -> ((PersonService) service).getCarsByPerson(personId));
     }
 }
