@@ -1,5 +1,6 @@
-package com.example.demo.commons.crud;
+package com.example.demo.common_impl.api;
 
+import com.example.demo.commons.crud.BaseService;
 import com.example.demo.commons.dto.BaseRequest;
 import com.example.demo.commons.dto.BaseResponse;
 import com.example.demo.commons.model.BaseEntity;

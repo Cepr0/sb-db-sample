@@ -1,6 +1,8 @@
 demo:
   api:
     type: sync
+  repo:
+    type: jpa
 
 logging:
   level:

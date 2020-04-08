@@ -8,14 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @EnableConfigurationProperties(ApiProps.class)
-@Slf4j
 @Configuration
 public class ControllerConfig {
 
     @Slf4j
     @Configuration
     @ConditionalOnProperty(name = "demo.api.type", havingValue = "async")
-    @ComponentScan("com.example.demo.impl.controller.async")
+    @ComponentScan("com.example.demo.impl.api.async")
     static class AsyncControllerConfig {
         public AsyncControllerConfig(ApiProps props) {
             log.debug("[d] API type is {}", props.getType());
@@ -26,7 +25,7 @@ public class ControllerConfig {
     @Slf4j
     @Configuration
     @ConditionalOnProperty(name = "demo.api.type", havingValue = "sync")
-    @ComponentScan("com.example.demo.impl.controller.sync")
+    @ComponentScan("com.example.demo.impl.api.sync")
     static class SyncControllerConfig {
         public SyncControllerConfig(ApiProps props) {
             log.debug("[d] API type is {}", props.getType());

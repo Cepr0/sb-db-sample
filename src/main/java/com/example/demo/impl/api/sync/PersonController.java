@@ -1,11 +1,11 @@
-package com.example.demo.impl.controller.sync;
+package com.example.demo.impl.api.sync;
 
 import com.example.demo.app.dto.CarResponse;
 import com.example.demo.app.dto.PersonRequest;
 import com.example.demo.app.dto.PersonResponse;
 import com.example.demo.app.model.Person;
 import com.example.demo.app.service.PersonService;
-import com.example.demo.commons.crud.SyncAbstractBaseController;
+import com.example.demo.common_impl.api.SyncAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
 import com.example.demo.commons.dto.OnUpdate;
 import org.springframework.http.ResponseEntity;

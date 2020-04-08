@@ -1,4 +1,4 @@
-package com.example.demo.commons.impl.jpa;
+package com.example.demo.common_impl.repo.jpa;
 
 import com.example.demo.commons.crud.BaseRepo;
 import com.example.demo.commons.model.BaseEntity;

@@ -18,10 +18,14 @@ public abstract class CarMapper implements BaseMapper<Car, Integer, CarRequest, 
     @Autowired private PersonRepo personRepo;
 
     @Mapping(target = "person", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "version", ignore = true)
     @Override
     public abstract Car toEntity(CarRequest request);
 
     @Mapping(target = "person", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "version", ignore = true)
     @Override
     public abstract Car update(CarRequest request, @MappingTarget Car target);
 

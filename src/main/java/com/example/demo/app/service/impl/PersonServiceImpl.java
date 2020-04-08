@@ -9,7 +9,7 @@ import com.example.demo.app.model.Person;
 import com.example.demo.app.repo.CarRepo;
 import com.example.demo.app.repo.PersonRepo;
 import com.example.demo.app.service.PersonService;
-import com.example.demo.commons.crud.DefaultAbstractBaseService;
+import com.example.demo.common_impl.service.DefaultAbstractBaseService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

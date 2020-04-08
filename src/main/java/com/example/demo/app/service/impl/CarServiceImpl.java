@@ -6,7 +6,7 @@ import com.example.demo.app.mapper.CarMapper;
 import com.example.demo.app.model.Car;
 import com.example.demo.app.repo.CarRepo;
 import com.example.demo.app.service.CarService;
-import com.example.demo.commons.crud.DefaultAbstractBaseService;
+import com.example.demo.common_impl.service.DefaultAbstractBaseService;
 import org.springframework.stereotype.Service;
 
 @Service
