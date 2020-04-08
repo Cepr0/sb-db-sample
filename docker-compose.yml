@@ -2,7 +2,8 @@ version: '2.3'
 services:
   postgresql:
     image: postgres:12-alpine
-    container_name: postgres
+    hostname: postgres
+    domainname: postgres
     restart: always
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust

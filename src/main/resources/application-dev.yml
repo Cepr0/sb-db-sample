@@ -4,6 +4,7 @@ logging:
     org:
       springframework:
         orm.jpa: debug
+        web: debug
     jdbc:
       sqltiming: info
       resultsettable: info
