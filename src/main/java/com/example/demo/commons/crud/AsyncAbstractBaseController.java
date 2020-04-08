@@ -13,12 +13,12 @@ import java.util.concurrent.Executor;
 import static java.util.concurrent.CompletableFuture.runAsync;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
-public abstract class DefaultAbstractBaseController<T extends BaseEntity<ID>, ID extends Serializable, Q extends BaseRequest, S extends BaseResponse<ID>> {
+public abstract class AsyncAbstractBaseController<T extends BaseEntity<ID>, ID extends Serializable, Q extends BaseRequest, S extends BaseResponse<ID>> {
 
     protected final BaseService<T, ID, Q, S> service;
     protected final Executor taskExecutor;
 
-    protected DefaultAbstractBaseController(BaseService<T, ID, Q, S> service, Executor taskExecutor) {
+    protected AsyncAbstractBaseController(BaseService<T, ID, Q, S> service, Executor taskExecutor) {
         this.service = service;
         this.taskExecutor = taskExecutor;
     }

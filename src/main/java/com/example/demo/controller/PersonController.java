@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.commons.crud.DefaultAbstractBaseController;
+import com.example.demo.commons.crud.AsyncAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
 import com.example.demo.commons.dto.OnUpdate;
 import com.example.demo.dto.CarResponse;
@@ -20,7 +20,7 @@ import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 @RestController
 @RequestMapping("people")
-public class PersonController extends DefaultAbstractBaseController<Person, Integer, PersonRequest, PersonResponse> {
+public class PersonController extends AsyncAbstractBaseController<Person, Integer, PersonRequest, PersonResponse> {
 
     protected PersonController(PersonService service, Executor taskExecutor) {
         super(service, taskExecutor);

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.commons.crud.DefaultAbstractBaseController;
+import com.example.demo.commons.crud.AsyncAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
 import com.example.demo.commons.dto.OnUpdate;
 import com.example.demo.dto.CarRequest;
@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 
 @RestController
 @RequestMapping("cars")
-public class CarController extends DefaultAbstractBaseController<Car, Integer, CarRequest, CarResponse> {
+public class CarController extends AsyncAbstractBaseController<Car, Integer, CarRequest, CarResponse> {
 
     protected CarController(CarService service, Executor taskExecutor) {
         super(service, taskExecutor);
