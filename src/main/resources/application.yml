@@ -1,3 +1,7 @@
+demo:
+  api:
+    type: sync
+
 logging:
   level:
     com.example: warn
