@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.async;
 
 import com.example.demo.commons.crud.AsyncAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
@@ -7,6 +7,7 @@ import com.example.demo.dto.CarRequest;
 import com.example.demo.dto.CarResponse;
 import com.example.demo.model.Car;
 import com.example.demo.service.CarService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
+@Profile("async")
 @RestController
 @RequestMapping("cars")
 public class CarController extends AsyncAbstractBaseController<Car, Integer, CarRequest, CarResponse> {

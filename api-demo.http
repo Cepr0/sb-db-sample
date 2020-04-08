@@ -1,6 +1,6 @@
 ###
 
-POST http://localhost:8080/people
+POST http://{{host}}/people
 Content-Type: application/json
 
 {
@@ -16,12 +16,12 @@ Content-Type: application/json
 %}
 ###
 
-GET http://localhost:8080/people/{{personId}}
+GET http://{{host}}/people/{{personId}}
 Accept: application/json
 
 ###
 
-GET http://localhost:8080/people
+GET http://{{host}}/people
 Accept: application/json
 
 > {%
@@ -29,7 +29,7 @@ Accept: application/json
 %}
 ###
 
-PATCH http://localhost:8080/people/{{personId}}
+PATCH http://{{host}}/people/{{personId}}
 Content-Type: application/json
 
 {
@@ -38,11 +38,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/people/{{personId}}
+DELETE http://{{host}}/people/{{personId}}
 
 ###
 
-POST http://localhost:8080/cars
+POST http://{{host}}/cars
 Content-Type: application/json
 
 {
@@ -57,12 +57,12 @@ Content-Type: application/json
 %}
 ###
 
-GET http://localhost:8080/cars/{{carId}}
+GET http://{{host}}/cars/{{carId}}
 Accept: application/json
 
 ###
 
-GET http://localhost:8080/cars
+GET http://{{host}}/cars
 Accept: application/json
 
 > {%
@@ -71,7 +71,7 @@ Accept: application/json
 
 ###
 
-PATCH http://localhost:8080/cars/{{carId}}
+PATCH http://{{host}}/cars/{{carId}}
 Content-Type: application/json
 
 {
@@ -80,11 +80,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/cars/{{carId}}
+DELETE http://{{host}}/cars/{{carId}}
 
 ###
 
-GET http://localhost:8080/people/{{personId}}/cars
+GET http://{{host}}/people/{{personId}}/cars
 Accept: application/json
 
 ###

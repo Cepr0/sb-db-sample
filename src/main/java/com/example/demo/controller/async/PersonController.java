@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.async;
 
 import com.example.demo.commons.crud.AsyncAbstractBaseController;
 import com.example.demo.commons.dto.OnCreate;
@@ -8,6 +8,7 @@ import com.example.demo.dto.PersonRequest;
 import com.example.demo.dto.PersonResponse;
 import com.example.demo.model.Person;
 import com.example.demo.service.PersonService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.concurrent.Executor;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
+@Profile("async")
 @RestController
 @RequestMapping("people")
 public class PersonController extends AsyncAbstractBaseController<Person, Integer, PersonRequest, PersonResponse> {
