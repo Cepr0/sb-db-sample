@@ -29,11 +29,11 @@ public abstract class AsyncAbstractBaseController<T extends BaseEntity<ID>, ID e
     }
 
     public CompletableFuture<ResponseEntity<S>> getById(ID id) {
-        return supplyAsync(() -> service.getById(id)).thenApply(ResponseEntity::of);
+        return supplyAsync(() -> service.getById(id), taskExecutor).thenApply(ResponseEntity::of);
     }
 
     public CompletableFuture<List<S>> getAll() {
-        return supplyAsync(service::getAll);
+        return supplyAsync(service::getAll, taskExecutor);
     }
 
     public CompletableFuture<ResponseEntity<S>> update(ID id, Q request) {

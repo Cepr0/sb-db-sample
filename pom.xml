@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -45,6 +43,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -126,38 +128,43 @@
             </plugin>
 
             <!-- Scala needed for Gatling -->
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>4.3.1</version>
-                <configuration>
-                    <jvmArgs>
-                        <jvmArg>-Xss100M</jvmArg>
-                    </jvmArgs>
-                    <args>
-                        <arg>-target:jvm-1.8</arg>
-                        <arg>-deprecation</arg>
-                        <arg>-feature</arg>
-                        <arg>-unchecked</arg>
-                        <arg>-language:implicitConversions</arg>
-                        <arg>-language:postfixOps</arg>
-                    </args>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-test-resources</phase>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>net.alchim31.maven</groupId>-->
+<!--                <artifactId>scala-maven-plugin</artifactId>-->
+<!--                <version>4.3.1</version>-->
+<!--                <configuration>-->
+<!--                    <jvmArgs>-->
+<!--                        <jvmArg>-Xss100M</jvmArg>-->
+<!--                    </jvmArgs>-->
+<!--                    <args>-->
+<!--                        <arg>-target:jvm-1.8</arg>-->
+<!--                        <arg>-deprecation</arg>-->
+<!--                        <arg>-feature</arg>-->
+<!--                        <arg>-unchecked</arg>-->
+<!--                        <arg>-language:implicitConversions</arg>-->
+<!--                        <arg>-language:postfixOps</arg>-->
+<!--                    </args>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>process-test-resources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>testCompile</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             <!-- Gatling support-->
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>3.0.5</version>
+                <configuration>
+                    <jvmArgs>
+                        <jvmArg>-Dbase_url=http://localhost:8080</jvmArg>
+                    </jvmArgs>
+                </configuration>
             </plugin>
 
         </plugins>

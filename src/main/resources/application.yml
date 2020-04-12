@@ -43,3 +43,9 @@ spring:
       ddl-auto: validate
   main:
     banner-mode: off
+  task:
+    execution:
+      pool:
+        queue-capacity: 256
+        max-size: 256
+#        core-size: 16
